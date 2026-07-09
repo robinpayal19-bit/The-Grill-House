@@ -1,1 +1,352 @@
+/*=========================================
+THE GRILL HOUSE
+Premium Restaurant Website
+Style.css - Part 1
+==========================================*/
 
+/* Google Fonts */
+
+:root{
+
+--black:#090909;
+--dark:#151515;
+--white:#ffffff;
+--orange:#ff7a00;
+--red:#ff3b30;
+--gold:#d4af37;
+--glass:rgba(255,255,255,.08);
+
+}
+
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+
+}
+
+body{
+
+font-family:'Poppins',sans-serif;
+background:var(--black);
+color:var(--white);
+overflow-x:hidden;
+
+}
+
+/* Scroll Bar */
+
+::-webkit-scrollbar{
+
+width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#111;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:linear-gradient(var(--orange),var(--red));
+
+border-radius:50px;
+
+}
+
+/* Progress Bar */
+
+#progressBar{
+
+position:fixed;
+top:0;
+left:0;
+width:0%;
+height:4px;
+background:linear-gradient(to right,var(--orange),var(--gold));
+z-index:99999;
+
+}
+
+/* Loader */
+
+#loader{
+
+position:fixed;
+width:100%;
+height:100%;
+background:#000;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:999999;
+
+}
+
+.loader-logo{
+
+width:120px;
+margin-bottom:20px;
+animation:spin 6s linear infinite;
+
+}
+
+.loading-bar{
+
+width:220px;
+height:5px;
+background:#222;
+border-radius:50px;
+overflow:hidden;
+
+}
+
+.loading-bar span{
+
+display:block;
+height:100%;
+width:0%;
+background:linear-gradient(to right,var(--orange),var(--gold));
+animation:loading 2s infinite;
+
+}
+
+@keyframes loading{
+
+0%{width:0%;}
+100%{width:100%;}
+
+}
+
+@keyframes spin{
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+/* Navbar */
+
+.navbar{
+
+background:rgba(0,0,0,.25);
+backdrop-filter:blur(18px);
+padding:18px 0;
+transition:.4s;
+
+}
+
+.navbar.scrolled{
+
+background:#090909;
+
+box-shadow:0 0 25px rgba(255,122,0,.3);
+
+}
+
+.navbar-brand{
+
+display:flex;
+align-items:center;
+gap:12px;
+font-size:24px;
+font-family:'Bebas Neue',sans-serif;
+letter-spacing:2px;
+color:#fff!important;
+
+}
+
+.navbar-brand img{
+
+width:55px;
+height:55px;
+border-radius:50%;
+object-fit:cover;
+
+}
+
+.navbar-nav{
+
+gap:18px;
+
+}
+
+.navbar-nav a{
+
+text-decoration:none;
+color:#fff;
+font-weight:500;
+transition:.3s;
+
+}
+
+.navbar-nav a:hover{
+
+color:var(--orange);
+
+}
+
+/* Hero */
+
+#home{
+
+min-height:100vh;
+display:flex;
+align-items:center;
+position:relative;
+overflow:hidden;
+
+background:
+linear-gradient(rgba(0,0,0,.78),
+rgba(0,0,0,.78)),
+url("assets/images/chowmein.jpg");
+
+background-size:cover;
+background-position:center;
+
+}
+
+.hero-overlay{
+
+position:absolute;
+width:100%;
+height:100%;
+background:radial-gradient(circle,
+rgba(255,122,0,.18),
+transparent);
+
+animation:pulse 5s infinite;
+
+}
+
+@keyframes pulse{
+
+50%{
+
+transform:scale(1.2);
+
+opacity:.4;
+
+}
+
+}
+
+.tagline{
+
+color:var(--gold);
+letter-spacing:3px;
+font-size:18px;
+
+}
+
+#home h1{
+
+font-family:'Bebas Neue',sans-serif;
+font-size:90px;
+line-height:1;
+margin:20px 0;
+
+}
+
+#home h1 span{
+
+color:var(--orange);
+
+}
+
+#home p{
+
+font-size:20px;
+color:#ddd;
+margin-bottom:35px;
+
+}
+
+.hero-food{
+
+width:100%;
+max-width:520px;
+
+filter:drop-shadow(0 0 30px rgba(255,122,0,.35));
+
+animation:float 4s ease-in-out infinite;
+
+}
+
+@keyframes float{
+
+50%{
+
+transform:translateY(-18px);
+
+}
+
+}
+
+/* Buttons */
+
+.btn-warning{
+
+background:linear-gradient(45deg,var(--orange),var(--red));
+border:none;
+padding:14px 34px;
+font-weight:600;
+border-radius:50px;
+transition:.35s;
+
+}
+
+.btn-warning:hover{
+
+transform:translateY(-5px);
+box-shadow:0 15px 35px rgba(255,122,0,.45);
+
+}
+
+.btn-outline-light{
+
+border-radius:50px;
+padding:14px 34px;
+
+}
+
+.hero-buttons{
+
+display:flex;
+gap:18px;
+flex-wrap:wrap;
+
+}
+
+/* Mobile */
+
+@media(max-width:991px){
+
+#home{
+
+text-align:center;
+padding-top:120px;
+
+}
+
+#home h1{
+
+font-size:58px;
+
+}
+
+.hero-food{
+
+margin-top:40px;
+
+}
+
+}
